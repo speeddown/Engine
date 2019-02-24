@@ -19,32 +19,19 @@
 
 package common;
 
-import org.junit.Test;
-
-import java.util.Scanner;
-
 import ecs.common.EntityModel;
 import ecs.components.Sprite;
-import services.LoggingService;
-import services.SceneManager;
 
 public class GameTest extends common.Game
 {
   @Override
   protected void load()
   {
-    promptForInput("Enter ZipCode: ");
   }
 
   @Override
   protected void unload()
   {
-
-  }
-
-  public static void main(String[] args)
-  {
-    promptForInput("Enter Integer: ");
   }
 
   private class TestScene extends ecs.common.Scene
@@ -60,33 +47,6 @@ public class GameTest extends common.Game
     public Player()
     {
       this.components.add(Sprite.class);
-    }
-  }
-
-  private static void promptForInput(String prompt)
-  {
-    Boolean error = false;
-    String userInp = "";
-    Scanner console = new Scanner(System.in);
-    do {
-      System.out.print(prompt);
-      userInp = console.nextLine();
-      // validate:
-    } while (error == true);
-
-    System.out.println("Input: " + Float.parseFloat(userInp));
-  }
-
-  private static boolean checkInt(String input)
-  {
-    try
-    {
-      Integer.parseInt(input);
-      return true;
-    }
-    catch (Exception e)
-    {
-      return false;
     }
   }
 }

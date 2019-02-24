@@ -17,25 +17,10 @@
 | Software Engineering Directorate, Attn: RDMR-BAW, Redstone Arsenal, AL 35898.
 --------------------------------------------------------------------------------------------------*/
 
-package ui.testMvc;
+package ui.controls.panel;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.concurrent.Callable;
+import ui.testMvc.Model;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.fxml.Initializable;
-
-public abstract class Controller<V extends Model> implements Initializable
+public class PanelModel extends Model
 {
-  private ObjectProperty<V> model = new SimpleObjectProperty<>();
-
-  public Controller(V model)
-  {
-    this.model.set(model);
-  }
-
-  @Override
-  public abstract void initialize(URL location, ResourceBundle resources);
 }

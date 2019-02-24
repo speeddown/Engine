@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.geometry.Insets?>
+<fx:root type="AnchorPane" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ui.controls.itemList.ItemListController">
+  <ListView fx:id="items" AnchorPane.bottomAnchor="0" AnchorPane.topAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.leftAnchor="0">
+    <padding>
+      <Insets left="2" right="2" top="2" bottom="2"/>
+    </padding>
+  </ListView>
+</fx:root>

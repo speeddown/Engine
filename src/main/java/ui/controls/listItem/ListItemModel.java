@@ -17,25 +17,47 @@
 | Software Engineering Directorate, Attn: RDMR-BAW, Redstone Arsenal, AL 35898.
 --------------------------------------------------------------------------------------------------*/
 
-package ui.testMvc;
-
-import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.concurrent.Callable;
+package ui.controls.listItem;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.fxml.Initializable;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import ui.controls.panel.Panel;
+import ui.testMvc.Model;
 
-public abstract class Controller<V extends Model> implements Initializable
+public class ListItemModel extends Model
 {
-  private ObjectProperty<V> model = new SimpleObjectProperty<>();
+  private StringProperty name = new SimpleStringProperty("ListItem");
+  private ObjectProperty<Panel> panel = new SimpleObjectProperty<>();
 
-  public Controller(V model)
+  public String getName()
   {
-    this.model.set(model);
+    return name.get();
   }
 
-  @Override
-  public abstract void initialize(URL location, ResourceBundle resources);
+  public StringProperty nameProperty()
+  {
+    return name;
+  }
+
+  public void setName(String name)
+  {
+    this.name.set(name);
+  }
+
+  public Panel getPanel()
+  {
+    return panel.get();
+  }
+
+  public ObjectProperty<Panel> panelProperty()
+  {
+    return panel;
+  }
+
+  public void setPanel(Panel panel)
+  {
+    this.panel.set(panel);
+  }
 }

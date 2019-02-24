@@ -17,6 +17,7 @@
 | Software Engineering Directorate, Attn: RDMR-BAW, Redstone Arsenal, AL 35898.
 --------------------------------------------------------------------------------------------------*/
 
+import org.junit.Test;
 import org.testfx.framework.junit5.ApplicationTest;
 
 import javafx.scene.Scene;
@@ -34,5 +35,9 @@ public class Tester extends ApplicationTest
     stage.show();
   }
 
+  @Test
+  public void testStart()
+  {
 
+  }
 }

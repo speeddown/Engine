@@ -19,22 +19,17 @@
 
 package ui.testMvc;
 
-import java.util.concurrent.Callable;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 
-public class View<T extends Controller> extends AnchorPane
+public abstract class View<T extends Controller> extends AnchorPane
 {
-  private T controller;
+  protected T controller;
 
   public View()
   {
     FXMLLoader loader = new FXMLLoader();
   }
 
-  public void setControllerFactory(FXMLLoader loader)
-  {
-
-  }
+  public abstract void setControllerFactory(FXMLLoader loader);
 }

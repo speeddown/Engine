@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.control.ScrollPane?>
-
-<?import javafx.scene.Group?>
-<fx:root type="ScrollPane" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-         fx:controller="ui.customControls.scrollableLogControl.ScrollableLogController" fx:id="root">
-  <Group fx:id="messages"/>
-</fx:root>
