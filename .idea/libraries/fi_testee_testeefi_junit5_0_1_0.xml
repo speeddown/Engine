@@ -1,0 +1,92 @@
+<component name="libraryTable">
+  <library name="fi.testee:testeefi-junit5:0.1.0" type="repository">
+    <properties maven-id="fi.testee:testeefi-junit5:0.1.0" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/testeefi-junit5-0.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-jupiter-engine-5.0.0-M6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-platform-engine-1.0.0-M6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-jupiter-api-5.0.0-M6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opentest4j-1.0.0-M3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-platform-commons-1.0.0-M6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/testeefi-core-0.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/testeefi-core-spi-0.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/testeefi-common-0.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/groovy-all-2.4.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/weld-core-impl-2.4.3.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cdi-api-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javax.inject-1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/weld-api-2.4.SP1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/weld-spi-2.4.SP1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jboss-classfilewriter-1.1.2.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jboss-annotations-api_1.2_spec-1.0.0.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jboss-el-api_3.0_spec-1.0.0.Alpha1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jboss-interceptors-api_1.2_spec-1.0.0.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jboss-logging-3.2.1.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javaee-api-7.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javax.mail-1.5.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/activation-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.7.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-lang3-3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-io-2.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javassist-3.21.0-GA.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/scannotation-1.0.3.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/testeefi-junit5-0.1.0-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-jupiter-engine-5.0.0-M6-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-platform-engine-1.0.0-M6-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-jupiter-api-5.0.0-M6-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opentest4j-1.0.0-M3-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-platform-commons-1.0.0-M6-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/testeefi-core-0.1.0-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/testeefi-core-spi-0.1.0-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/testeefi-common-0.1.0-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/groovy-all-2.4.12-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/weld-core-impl-2.4.3.Final-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cdi-api-1.2-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javax.inject-1-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/weld-api-2.4.SP1-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/weld-spi-2.4.SP1-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jboss-annotations-api_1.2_spec-1.0.0.Final-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jboss-el-api_3.0_spec-1.0.0.Alpha1-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jboss-interceptors-api_1.2_spec-1.0.0.Final-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javaee-api-7.0-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javax.mail-1.5.0-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.7.21-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-lang3-3.2-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-io-2.4-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javassist-3.21.0-GA-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/scannotation-1.0.3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/testeefi-junit5-0.1.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-jupiter-engine-5.0.0-M6-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-platform-engine-1.0.0-M6-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-jupiter-api-5.0.0-M6-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opentest4j-1.0.0-M3-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-platform-commons-1.0.0-M6-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/testeefi-core-0.1.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/testeefi-core-spi-0.1.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/testeefi-common-0.1.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/groovy-all-2.4.12-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/weld-core-impl-2.4.3.Final-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cdi-api-1.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javax.inject-1-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/weld-api-2.4.SP1-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/weld-spi-2.4.SP1-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jboss-classfilewriter-1.1.2.Final-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jboss-annotations-api_1.2_spec-1.0.0.Final-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jboss-el-api_3.0_spec-1.0.0.Alpha1-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jboss-interceptors-api_1.2_spec-1.0.0.Final-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jboss-logging-3.2.1.Final-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javaee-api-7.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javax.mail-1.5.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/activation-1.1-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.7.21-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-lang3-3.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-io-2.4-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javassist-3.21.0-GA-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/scannotation-1.0.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

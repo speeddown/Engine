@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import ui.customControls.scrollableLogControl.ScrollableLogControl?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.ListView?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="tools.logViewer.LogViewerController" minWidth="400" minHeight="600">
+  <left>
+    <ListView fx:id="loggerList"/>
+  </left>
+  <right>
+    <ScrollableLogControl fx:id="commonMessagePane"/>
+  </right>
+
+</BorderPane>

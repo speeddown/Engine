@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+
+<fx:root type="AnchorPane" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ui.customControls.detailPaneControl.DetailPaneController" fx:id="root"
+            style="-fx-border-width: 2">
+
+</fx:root>
