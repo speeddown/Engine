@@ -40,7 +40,7 @@ public class SpriteService extends Service implements SceneLoadedEventListener
 
   private SpriteService()
   {
-    ((EventManager) ServiceLocator.getInstance().resolve(EventManager.class)).addListener(SceneLoadedEvent.class, this);
+    ServiceLocator.getInstance().resolve(EventManager.class).addListener(SceneLoadedEvent.class, this);
   }
 
   /**

@@ -19,14 +19,60 @@
 
 package ui.controls.listItem;
 
-import javafx.fxml.FXMLLoader;
-import ui.testMvc.View;
+import java.io.IOException;
 
-public class ListItem extends View<ListItemController>
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
+import ui.controls.itemList.ItemList;
+import ui.controls.panel.Panel;
+import ui.mvc.View;
+
+/**
+ * A ListItem is a custom control that lives inside of a {@link ItemList} custom control
+ */
+public class ListItem extends View<ListItemController, ListItemModel>
 {
+  private StringProperty name = new SimpleStringProperty();
+  private ObjectProperty<Panel> panel = new SimpleObjectProperty<>();
+
+  /**
+   * {@inheritDoc}
+   */
   @Override
-  public void setControllerFactory(FXMLLoader loader)
+  protected void bindModelToExternalProperties(ListItemModel internalModel)
   {
+    internalModel.nameProperty().bind(name);
+    internalModel.panelProperty().bind(panel);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void load()
+  {
+    ListItemModel internalModel = new ListItemModel();
+    bindModelToExternalProperties(internalModel);
+
+    FXMLLoader loader = new FXMLLoader(ClassLoader.getSystemResource("ListItem.fxml"));
+    loader.setRoot(this);
+    loader.setControllerFactory(param ->
+    {
+      return new ListItemController(internalModel);
+    });
+
+    try
+    {
+      loader.load();
+    }
+    catch (IOException e)
+    {
+      this.getChildren().add(new Label("Failed to load ListItem"));
+    }
 
   }
 }

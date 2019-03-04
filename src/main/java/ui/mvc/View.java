@@ -17,25 +17,49 @@
 | Software Engineering Directorate, Attn: RDMR-BAW, Redstone Arsenal, AL 35898.
 --------------------------------------------------------------------------------------------------*/
 
-package ui.testMvc;
+package ui.mvc;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.concurrent.Callable;
+import javafx.scene.layout.AnchorPane;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import ui.Viewable;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.fxml.Initializable;
-
-public abstract class Controller<V extends Model> implements Initializable
+/**
+ * The View class loads the FXML file and binds outward-facing properties to an internal {@link Model}
+ * object that it shares with an associated {@link Controller} object.
+ *
+ * All View objects extend {@link AnchorPane} since they are used in FXML to arrange the UI.
+ *
+ * @param <T> the {@link Controller} subclass type
+ * @param <V> the {@link Model} subclass type
+ */
+public class View<T extends Controller, V extends Model> extends AnchorPane implements Viewable
 {
-  private ObjectProperty<V> model = new SimpleObjectProperty<>();
-
-  public Controller(V model)
+  /**
+   * Default constructor. Calls the private load() method to begin loading the FXML for the
+   * control
+   */
+  public View()
   {
-    this.model.set(model);
+    load();
   }
 
-  @Override
-  public abstract void initialize(URL location, ResourceBundle resources);
+  /**
+   * Responsible for binding the internal model to the outward facing properties of the
+   * custom control.
+   *
+   * @param internalModel the internal model to bind to
+   */
+  protected void bindModelToExternalProperties(V internalModel)
+  {
+    throw new NotImplementedException();
+  }
+
+  /**
+   * Creates and initializes a new instance of the associated {@link Model}.
+   * Loads the FXML file associated with the {@link Controller}.
+   */
+  public void load()
+  {
+    throw new NotImplementedException();
+  }
 }

@@ -17,8 +17,52 @@
 | Software Engineering Directorate, Attn: RDMR-BAW, Redstone Arsenal, AL 35898.
 --------------------------------------------------------------------------------------------------*/
 
-package ui.testMvc;
+package ui.mvc;
 
-public class Model
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.layout.AnchorPane;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
+/**
+ * Controller class is responsible for binding the internal model of the custom
+ * control to the UI element properties. Prepares data from the model to be displayed
+ * on the UI.
+ *
+ * @param <V> the {@link Model} subclass type
+ */
+public class Controller<V extends Model> implements Initializable
 {
+  @FXML
+  protected AnchorPane root;
+
+  /**
+   * The Internal model.
+   */
+  protected V internalModel;
+
+  /**
+   * Instantiates a new Controller.
+   *
+   * @param model the internal {@link Model}
+   */
+  public Controller(V model)
+  {
+    if (model != null)
+    {
+      this.internalModel = model;
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void initialize(URL location, ResourceBundle resources)
+  {
+    throw new NotImplementedException();
+  }
 }

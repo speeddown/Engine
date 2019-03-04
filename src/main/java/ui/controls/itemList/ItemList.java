@@ -19,6 +19,85 @@
 
 package ui.controls.itemList;
 
-public class ItemList
+import java.io.IOException;
+
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.SimpleListProperty;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
+import ui.controls.listItem.ListItem;
+import ui.mvc.View;
+
+/**
+ * Custom control that handles displaying, opening, and managing a list of {@link ListItem}s
+ */
+public class ItemList extends View<ItemListController, ItemListModel>
 {
+  private ListProperty<ListItem> listItems = new SimpleListProperty<>();
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected void bindModelToExternalProperties(ItemListModel internalModel)
+  {
+    internalModel.listItemsProperty().bind(listItemsProperty());
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void load()
+  {
+    ItemListModel externalModel = new ItemListModel();
+    bindModelToExternalProperties(externalModel);
+
+    FXMLLoader loader = new FXMLLoader(ClassLoader.getSystemResource("views.controls.ItemList.fxml"));
+    loader.setRoot(this);
+    loader.setControllerFactory(param ->
+    {
+      return new ItemListController(externalModel);
+    });
+
+    try
+    {
+      loader.load();
+    }
+    catch (IOException e)
+    {
+      this.getChildren().add(new Label("Failed to load ItemList"));
+    }
+  }
+
+  /**
+   * Gets list items.
+   *
+   * @return the list items
+   */
+  public ObservableList<ListItem> getListItems()
+  {
+    return listItems.get();
+  }
+
+  /**
+   * List items property list property.
+   *
+   * @return the list property
+   */
+  public ListProperty<ListItem> listItemsProperty()
+  {
+    return listItems;
+  }
+
+  /**
+   * Sets list items.
+   *
+   * @param listItems the list items
+   */
+  public void setListItems(ObservableList<ListItem> listItems)
+  {
+    this.listItems.set(listItems);
+  }
 }

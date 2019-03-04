@@ -20,61 +20,46 @@
 package services;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import common.Service;
 import common.ServiceLocator;
-import javafx.application.Platform;
+import tools.Tool;
 
 public class ToolAccessService extends Service
 {
-//  private LoggingService.Logger logger = ServiceLocator.getInstance().resolve(LoggingService.class).newLogger(getClass());
-//  private static ToolAccessService instance = null;
-//
-//  private Map<Class<? extends Tool>, Tool> runningTools = new HashMap<>();
-//
-//  public static ToolAccessService getInstance()
-//  {
-//    if (instance == null)
-//    {
-//      instance = new ToolAccessService();
-//    }
-//    return instance;
-//  }
-//
-//  public void launchTool(Class<? extends Tool> toolType)
-//  {
-//    if(!runningTools.containsKey(toolType))
-//    {
-//      Platform.runLater(() ->
-//      {
-//        try
-//        {
-//          Tool newTool = toolType.newInstance();
-//          runningTools.put(toolType, newTool);
-//        }
-//        catch (InstantiationException | IllegalAccessException e)
-//        {
-//          e.printStackTrace();
-//        }
-//      });
-//    }
-//    else
-//    {
-//      logger.log("Tool already running!", null);
-//    }
-//  }
-//
-//  public <T extends Tool> T access(Class<? extends T> type)
-//  {
-//    if(runningTools.containsKey(type))
-//    {
-//      return (T)runningTools.get(type);
-//    }
-//    else
-//    {
-//      logger.log(type.getSimpleName() + " is not running. Launch tool first.", null);
-//      return null;
-//    }
-//  }
+  private static ToolAccessService instance = null;
+  private final LoggingService.Logger logger = ServiceLocator.getInstance().resolve(LoggingService.class).newLogger(getClass());
+
+  private HashMap<Class<? extends Tool>, Tool> tools = new HashMap<>();
+
+  public static ToolAccessService getInstance()
+  {
+    if(instance == null)
+    {
+      instance = new ToolAccessService();
+    }
+    return instance;
+  }
+
+  public boolean isToolRunning(Class<? extends Tool> tool)
+  {
+    return tools.containsKey(tool);
+  }
+
+  public void startTool(Class<? extends Tool> tool)
+  {
+    if(!isToolRunning(tool))
+    {
+      try
+      {
+        Tool toolInstance = tool.newInstance();
+        toolInstance.load();
+        tools.put(tool, toolInstance);
+      }
+      catch (InstantiationException | IllegalAccessException e)
+      {
+        logger.log("Failed to start " + getClass().getSimpleName(), null);
+      }
+    }
+  }
 }

@@ -20,27 +20,46 @@
 package ui.controls.listItem;
 
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import ui.controls.panel.Panel;
-import ui.testMvc.Model;
+import ui.mvc.Model;
 
+/**
+ * The {@link Model} associated with the {@link ListItem} custom control.
+ */
 public class ListItemModel extends Model
 {
   private StringProperty name = new SimpleStringProperty("ListItem");
-  private ObjectProperty<Panel> panel = new SimpleObjectProperty<>();
+  private ObjectProperty<Panel> panel = null;
 
+  /**
+   * Gets name.
+   *
+   * @return the name
+   */
   public String getName()
   {
     return name.get();
   }
 
+  /**
+   * Name property string property.
+   *
+   * @return the string property
+   */
   public StringProperty nameProperty()
   {
     return name;
   }
 
+  /**
+   * Sets name.
+   *
+   * @param name the name
+   */
   public void setName(String name)
   {
     this.name.set(name);
@@ -58,6 +77,9 @@ public class ListItemModel extends Model
 
   public void setPanel(Panel panel)
   {
-    this.panel.set(panel);
+    if(this.panel.isNull().getValue())
+    {
+      this.panel.set(panel);
+    }
   }
 }

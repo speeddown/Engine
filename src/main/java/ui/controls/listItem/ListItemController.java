@@ -22,18 +22,29 @@ package ui.controls.listItem;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import ui.testMvc.Controller;
+import ui.mvc.Controller;
 
+/**
+ * The {@link Controller} associated with the {@link ListItem} custom control
+ */
 public class ListItemController extends Controller<ListItemModel>
 {
-  public ListItemController(ListItemModel model)
+  /**
+   * Instantiates a new List item controller.
+   *
+   * @param model the internal model
+   */
+  ListItemController(ListItemModel model)
   {
     super(model);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void initialize(URL location, ResourceBundle resources)
   {
-
+    
   }
 }

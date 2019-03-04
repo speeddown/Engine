@@ -38,7 +38,7 @@ public abstract class Game extends Application
   protected LoggingService loggingService = LoggingService.getInstance();
   protected EventManager eventManager = EventManager.getInstance();
   protected ServiceLocator serviceLocator = ServiceLocator.getInstance();
-//  protected ToolAccessService toolService = ToolAccessService.getInstance();
+  protected ToolAccessService toolService = ToolAccessService.getInstance();
   protected Ecs ecs = Ecs.getInstance();
   protected SceneManager sceneManager = SceneManager.getInstance();
   protected SpriteService spriteService = SpriteService.getInstance();

@@ -17,10 +17,11 @@
 | Software Engineering Directorate, Attn: RDMR-BAW, Redstone Arsenal, AL 35898.
 --------------------------------------------------------------------------------------------------*/
 
-package ui.controls.panel;
+package ui.mvc;
 
-import ui.testMvc.Model;
-
-public class PanelModel extends Model
+/**
+ * A common base class for Data objects to extend
+ */
+public class Model
 {
 }

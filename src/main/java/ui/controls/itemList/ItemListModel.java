@@ -19,6 +19,47 @@
 
 package ui.controls.itemList;
 
-public class ItemListModel
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.SimpleListProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import ui.controls.listItem.ListItem;
+import ui.mvc.Model;
+
+/**
+ * The {@link Model} associated with the {@link ItemList} custom control.
+ */
+public class ItemListModel extends Model
 {
+  private ListProperty<ListItem> listItems = new SimpleListProperty<>(FXCollections.emptyObservableList());
+
+  /**
+   * Gets list items.
+   *
+   * @return the list items
+   */
+  public ObservableList<ListItem> getListItems()
+  {
+    return listItems.get();
+  }
+
+  /**
+   * List items property list property.
+   *
+   * @return the list property
+   */
+  public ListProperty<ListItem> listItemsProperty()
+  {
+    return listItems;
+  }
+
+  /**
+   * Sets list items.
+   *
+   * @param listItems the list items
+   */
+  public void setListItems(ObservableList<ListItem> listItems)
+  {
+    this.listItems.set(listItems);
+  }
 }

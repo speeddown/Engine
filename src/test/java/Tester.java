@@ -17,20 +17,28 @@
 | Software Engineering Directorate, Attn: RDMR-BAW, Redstone Arsenal, AL 35898.
 --------------------------------------------------------------------------------------------------*/
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.testfx.framework.junit5.ApplicationTest;
 
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import ui.controls.panel.Panel;
 
 public class Tester extends ApplicationTest
 {
+  Panel panel;
+  Scene scene;
+
+  @BeforeClass
+  public void before()
+  {
+
+  }
+
   @Override
   public void start(Stage stage)
   {
-    AnchorPane anchorPane = new AnchorPane();
-    Scene scene = new Scene(anchorPane);
     stage.setScene(scene);
     stage.show();
   }
