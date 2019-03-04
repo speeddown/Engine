@@ -56,12 +56,12 @@ public abstract class Game extends Application
     primaryStage.show();
 
     load();
-    start();
+    startRunning();
   }
 
   protected abstract void load();
 
-  protected void start()
+  protected void startRunning()
   {
     ServiceLocator.getInstance().resolve(Ecs.class).start();
   }

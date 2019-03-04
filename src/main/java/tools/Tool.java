@@ -1,5 +1,8 @@
 package tools;
 
+import javafx.beans.DefaultProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.Parent;
 import ui.Window;
 import ui.mvc.View;
@@ -12,15 +15,21 @@ import ui.mvc.View;
  *
  * @param <T> the type of View to use as the root of the tool window
  */
+@DefaultProperty("toolView")
 public abstract class Tool<T extends View>
 {
   private Window window;
-  private T toolView;
+  private ObjectProperty<T> toolView = new SimpleObjectProperty<>();
 
   public Tool()
   {
     super();
     this.window = new Window();
+  }
+
+  public Tool(View root)
+  {
+    this.window = new Window(root);
   }
 
   /**
@@ -40,8 +49,17 @@ public abstract class Tool<T extends View>
    */
   public void setToolView(T toolView)
   {
-    this.toolView = toolView;
-    this.window.setRootControl(toolView);
+    this.toolView.setValue(toolView);
+  }
+
+  protected T getToolView()
+  {
+    return this.toolView.get();
+  }
+
+  protected ObjectProperty<T> toolViewProperty()
+  {
+    return toolView;
   }
 
   /**

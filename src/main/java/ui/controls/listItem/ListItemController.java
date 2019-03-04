@@ -45,6 +45,6 @@ public class ListItemController extends Controller<ListItemModel>
   @Override
   public void initialize(URL location, ResourceBundle resources)
   {
-    
+    internalModel.cellProperty().get().setText(internalModel.getName());
   }
 }

@@ -2,27 +2,21 @@ package ui.controls.splitToolView;
 
 import java.io.IOException;
 
-import javafx.beans.DefaultProperty;
 import javafx.beans.property.ListProperty;
-import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleListProperty;
-import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 import ui.controls.listItem.ListItem;
 import ui.mvc.View;
 
 /**
- * The SplitToolView is a root view used as the root of a Tool. The
+ * The SplitToolView is a root view used as the root of a Tool.
  */
-@DefaultProperty("content")
 public class SplitToolView extends View<SplitToolController, SplitToolModel>
 {
-  // The {@link ListItem}s that are held in the {@link ui.controls.itemList.ItemList}
-  ListProperty<ListItem> items = new SimpleListProperty<>();
-  ObjectProperty<AnchorPane> toolContent = new SimpleObjectProperty<>();
+  private ListProperty<ListItem> listItems = new SimpleListProperty<>(FXCollections.emptyObservableList());
 
   /**
    * {@inheritDoc}
@@ -30,7 +24,7 @@ public class SplitToolView extends View<SplitToolController, SplitToolModel>
   @Override
   protected void bindModelToExternalProperties(SplitToolModel internalModel)
   {
-    internalModel.listItemsProperty().bind(items);
+    internalModel.listItemsProperty().bind(listItems);
   }
 
   /**
@@ -59,38 +53,18 @@ public class SplitToolView extends View<SplitToolController, SplitToolModel>
     }
   }
 
-  /**
-   * Returns the list of {@link ListItem}s in the {@link ui.controls.itemList.ItemList}
-   *
-   * @return the list items
-   */
-  public ObservableList<ListItem> getItems()
+  public ObservableList<ListItem> getListItems()
   {
-    return items.get();
+    return listItems.get();
   }
 
-  /**
-   * The ListProperty containing all {@link ListItem}s
-   *
-   * @return the list property of list items
-   */
-  public ListProperty<ListItem> itemsProperty()
+  public ListProperty<ListItem> listItemsProperty()
   {
-    return items;
+    return listItems;
   }
 
-  public AnchorPane getToolContent()
+  public void setListItems(ObservableList<ListItem> listItems)
   {
-    return toolContent.get();
-  }
-
-  public ObjectProperty<AnchorPane> toolContentProperty()
-  {
-    return toolContent;
-  }
-
-  public void setToolContent(AnchorPane toolContent)
-  {
-    this.toolContent.set(toolContent);
+    this.listItems.set(listItems);
   }
 }

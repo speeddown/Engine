@@ -1,14 +1,17 @@
 package ui;
 
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import ui.mvc.View;
 
 /**
  * Window extends a {@link Stage} and obfuscates and simplifies the process of opening
  * a new Stage window in JavaFx.
  */
-public class Window extends Stage
+public class Window extends Stage implements Viewable
 {
   /**
    * Instantiates a new Window.
@@ -23,7 +26,7 @@ public class Window extends Stage
    *
    * @param control the control
    */
-  public Window(AnchorPane control)
+  public Window(View control)
   {
     this.setScene(new Scene(control));
     this.show();
@@ -36,7 +39,7 @@ public class Window extends Stage
    * @param width   the width
    * @param height  the height
    */
-  public Window(AnchorPane control, int width, int height)
+  public Window(View control, int width, int height)
   {
     this.setScene(new Scene(control));
     this.setWidth(width);
@@ -49,10 +52,16 @@ public class Window extends Stage
    *
    * @param rootControl the root control
    */
-  public void setRootControl(AnchorPane rootControl)
+  public void setRootControl(View rootControl)
   {
     this.hide();
     this.setScene(new Scene(rootControl));
     this.show();
+  }
+
+  @Override
+  public void load()
+  {
+    throw new NotImplementedException();
   }
 }

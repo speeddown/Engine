@@ -23,36 +23,36 @@ import java.util.HashMap;
 
 import common.Service;
 import common.ServiceLocator;
-import tools.Tool;
+import ui.Window;
 
 public class ToolAccessService extends Service
 {
   private static ToolAccessService instance = null;
   private final LoggingService.Logger logger = ServiceLocator.getInstance().resolve(LoggingService.class).newLogger(getClass());
 
-  private HashMap<Class<? extends Tool>, Tool> tools = new HashMap<>();
+  private HashMap<Class<? extends Window>, Window> tools = new HashMap<>();
 
   public static ToolAccessService getInstance()
   {
-    if(instance == null)
+    if (instance == null)
     {
       instance = new ToolAccessService();
     }
     return instance;
   }
 
-  public boolean isToolRunning(Class<? extends Tool> tool)
+  public boolean isToolRunning(Class<? extends Window> tool)
   {
     return tools.containsKey(tool);
   }
 
-  public void startTool(Class<? extends Tool> tool)
+  public void startTool(Class<? extends Window> tool)
   {
-    if(!isToolRunning(tool))
+    if (!isToolRunning(tool))
     {
       try
       {
-        Tool toolInstance = tool.newInstance();
+        Window toolInstance = tool.newInstance();
         toolInstance.load();
         tools.put(tool, toolInstance);
       }

@@ -142,6 +142,9 @@ public class Ecs extends Service
 
   public void stop()
   {
-    timer.cancel();
+    if(timer != null)
+    {
+      timer.cancel();
+    }
   }
 }

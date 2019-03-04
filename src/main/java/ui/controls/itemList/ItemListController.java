@@ -22,6 +22,7 @@ package ui.controls.itemList;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import ui.controls.listItem.ListItem;
@@ -52,6 +53,22 @@ public class ItemListController extends Controller<ItemListModel>
   @Override
   public void initialize(URL location, ResourceBundle resources)
   {
-
+    internalModel.listItemsProperty().get().addListener((ListChangeListener<? super ListItem>) c ->
+    {
+      while(c.next())
+      {
+        if(c.wasAdded())
+        {
+          for(ListItem item : c.getAddedSubList())
+          {
+            items.itemsProperty().get().add(item);
+          }
+        }
+        else if(c.wasRemoved())
+        {
+          items.itemsProperty().get().removeAll(c.getRemoved());
+        }
+      }
+    });
   }
 }

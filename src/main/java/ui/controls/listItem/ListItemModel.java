@@ -20,12 +20,12 @@
 package ui.controls.listItem;
 
 import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import ui.controls.panel.Panel;
+import javafx.scene.control.ListCell;
 import ui.mvc.Model;
+import ui.mvc.View;
 
 /**
  * The {@link Model} associated with the {@link ListItem} custom control.
@@ -33,7 +33,7 @@ import ui.mvc.Model;
 public class ListItemModel extends Model
 {
   private StringProperty name = new SimpleStringProperty("ListItem");
-  private ObjectProperty<Panel> panel = null;
+  private ObjectProperty<ListCell<View>> cell = new SimpleObjectProperty<>();
 
   /**
    * Gets name.
@@ -65,21 +65,18 @@ public class ListItemModel extends Model
     this.name.set(name);
   }
 
-  public Panel getPanel()
+  public ListCell<View> getCell()
   {
-    return panel.get();
+    return cell.get();
   }
 
-  public ObjectProperty<Panel> panelProperty()
+  public ObjectProperty<ListCell<View>> cellProperty()
   {
-    return panel;
+    return cell;
   }
 
-  public void setPanel(Panel panel)
+  public void setCell(ListCell<View> cell)
   {
-    if(this.panel.isNull().getValue())
-    {
-      this.panel.set(panel);
-    }
+    this.cell.set(cell);
   }
 }

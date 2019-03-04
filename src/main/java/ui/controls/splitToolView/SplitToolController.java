@@ -32,6 +32,18 @@ public class SplitToolController extends Controller<SplitToolModel>
   @Override
   public void initialize(URL location, ResourceBundle resources)
   {
+    internalModel.toolContentProperty().addListener((observable, oldValue, newValue) ->
+    {
+      if (newValue != null)
+      {
+        AnchorPane.setTopAnchor(newValue, 0d);
+        AnchorPane.setRightAnchor(newValue, 0d);
+        AnchorPane.setLeftAnchor(newValue, 0d);
+        AnchorPane.setBottomAnchor(newValue, 0d);
+        panel.getChildren().add(newValue);
+      }
+    });
+
     itemList.listItemsProperty().bind(internalModel.listItemsProperty());
   }
 }

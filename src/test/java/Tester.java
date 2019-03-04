@@ -21,26 +21,29 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.testfx.framework.junit5.ApplicationTest;
 
+import javafx.application.Platform;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import ui.controls.panel.Panel;
+import tools.logViewer.LogViewer;
 
 public class Tester extends ApplicationTest
 {
-  Panel panel;
   Scene scene;
-
-  @BeforeClass
-  public void before()
-  {
-
-  }
 
   @Override
   public void start(Stage stage)
   {
+    AnchorPane root = new AnchorPane();
+    scene.setRoot(root);
     stage.setScene(scene);
     stage.show();
+
+    Platform.runLater(() ->
+    {
+      LogViewer logViewer = new LogViewer();
+      logViewer.load();
+    });
   }
 
   @Test

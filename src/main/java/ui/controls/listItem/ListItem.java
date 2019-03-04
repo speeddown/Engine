@@ -27,8 +27,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
 import ui.controls.itemList.ItemList;
-import ui.controls.panel.Panel;
 import ui.mvc.View;
 
 /**
@@ -37,7 +37,7 @@ import ui.mvc.View;
 public class ListItem extends View<ListItemController, ListItemModel>
 {
   private StringProperty name = new SimpleStringProperty();
-  private ObjectProperty<Panel> panel = new SimpleObjectProperty<>();
+  private ObjectProperty<ListCell<View>> cell = new SimpleObjectProperty<>();
 
   /**
    * {@inheritDoc}
@@ -46,7 +46,7 @@ public class ListItem extends View<ListItemController, ListItemModel>
   protected void bindModelToExternalProperties(ListItemModel internalModel)
   {
     internalModel.nameProperty().bind(name);
-    internalModel.panelProperty().bind(panel);
+    internalModel.cellProperty().bind(cell);
   }
 
   /**
@@ -73,6 +73,5 @@ public class ListItem extends View<ListItemController, ListItemModel>
     {
       this.getChildren().add(new Label("Failed to load ListItem"));
     }
-
   }
 }

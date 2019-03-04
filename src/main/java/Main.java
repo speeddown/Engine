@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import services.ToolAccessService;
+import tools.logViewer.LogViewer;
 
 public class Main extends Game
 {
@@ -15,6 +16,7 @@ public class Main extends Game
   {
     FXMLLoader loader = new FXMLLoader(getClass().getResource("MainTest.fxml"));
     Parent parent = null;
+
     try
     {
       parent = loader.load();
@@ -29,6 +31,8 @@ public class Main extends Game
 
     ToolAccessService toolAccessService = ServiceLocator.getInstance().resolve(ToolAccessService.class);
     toolAccessService.startTool(LogViewer.class);
+
+    startRunning();
   }
 
   @Override
