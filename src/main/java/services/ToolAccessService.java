@@ -23,6 +23,8 @@ import java.util.HashMap;
 
 import common.Service;
 import common.ServiceLocator;
+import tools.Loadable;
+import tools.Tool;
 import ui.Window;
 
 public class ToolAccessService extends Service
@@ -30,7 +32,7 @@ public class ToolAccessService extends Service
   private static ToolAccessService instance = null;
   private final LoggingService.Logger logger = ServiceLocator.getInstance().resolve(LoggingService.class).newLogger(getClass());
 
-  private HashMap<Class<? extends Window>, Window> tools = new HashMap<>();
+  private HashMap<Class<? extends Tool>, Tool> tools = new HashMap<>();
 
   public static ToolAccessService getInstance()
   {
@@ -41,24 +43,24 @@ public class ToolAccessService extends Service
     return instance;
   }
 
-  public boolean isToolRunning(Class<? extends Window> tool)
+  public boolean isToolRunning(Class<? extends Tool> tool)
   {
     return tools.containsKey(tool);
   }
 
-  public void startTool(Class<? extends Window> tool)
+  public void startTool(Class<? extends Tool> tool)
   {
     if (!isToolRunning(tool))
     {
       try
       {
-        Window toolInstance = tool.newInstance();
-        toolInstance.load();
-        tools.put(tool, toolInstance);
+        Tool newTool = tool.newInstance();
+        newTool.load();
+        tools.put(tool, newTool);
       }
       catch (InstantiationException | IllegalAccessException e)
       {
-        logger.log("Failed to start " + getClass().getSimpleName(), null);
+        logger.log("Failed to start tool: " + tool.getName(), e.getMessage());
       }
     }
   }

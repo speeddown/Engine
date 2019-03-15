@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<fx:root type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@../css/Style.css">
+    <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <MenuBar fx:id="menu" minHeight="25.0"/>
+        <ToolBar fx:id="toolBar" minHeight="40.0"/>
+        <SplitPane dividerPositions="0.5" VBox.vgrow="ALWAYS">
+            <ListView fx:id="listItems" minWidth="120.0" maxWidth="200.0" minHeight="500"/>
+            <AnchorPane fx:id="itemContentRoot" minWidth="500.0" minHeight="500"/>
+        </SplitPane>
+    </VBox>
+</fx:root>

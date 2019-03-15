@@ -11,7 +11,7 @@ import ui.mvc.View;
  * Window extends a {@link Stage} and obfuscates and simplifies the process of opening
  * a new Stage window in JavaFx.
  */
-public class Window extends Stage implements Viewable
+public class Window extends Stage
 {
   /**
    * Instantiates a new Window.
@@ -57,11 +57,5 @@ public class Window extends Stage implements Viewable
     this.hide();
     this.setScene(new Scene(rootControl));
     this.show();
-  }
-
-  @Override
-  public void load()
-  {
-    throw new NotImplementedException();
   }
 }

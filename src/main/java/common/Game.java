@@ -43,8 +43,6 @@ public abstract class Game extends Application
   protected SceneManager sceneManager = SceneManager.getInstance();
   protected SpriteService spriteService = SpriteService.getInstance();
 
-  private static boolean running = false;
-
   @Override
   public void start(Stage primaryStage)
   {
@@ -63,14 +61,14 @@ public abstract class Game extends Application
 
   protected void startRunning()
   {
-    ServiceLocator.getInstance().resolve(Ecs.class).start();
+    ecs.start();
   }
 
   protected abstract void unload();
 
   protected void stopRunning()
   {
-    ServiceLocator.getInstance().resolve(Ecs.class).stop();
+    ecs.stop();
   }
 
   @Override

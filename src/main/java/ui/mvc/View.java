@@ -21,7 +21,7 @@ package ui.mvc;
 
 import javafx.scene.layout.AnchorPane;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-import ui.Viewable;
+import ui.controls.SplitTool.SplitToolModel;
 
 /**
  * The View class loads the FXML file and binds outward-facing properties to an internal {@link Model}
@@ -32,8 +32,10 @@ import ui.Viewable;
  * @param <T> the {@link Controller} subclass type
  * @param <V> the {@link Model} subclass type
  */
-public class View<T extends Controller, V extends Model> extends AnchorPane implements Viewable
+public abstract class View<T extends Controller, V extends Model> extends AnchorPane
 {
+  protected V internalModel;
+
   /**
    * Default constructor. Calls the private load() method to begin loading the FXML for the
    * control
@@ -46,10 +48,8 @@ public class View<T extends Controller, V extends Model> extends AnchorPane impl
   /**
    * Responsible for binding the internal model to the outward facing properties of the
    * custom control.
-   *
-   * @param internalModel the internal model to bind to
    */
-  protected void bindModelToExternalProperties(V internalModel)
+  protected void bindModelToExternalProperties()
   {
     throw new NotImplementedException();
   }
@@ -58,8 +58,5 @@ public class View<T extends Controller, V extends Model> extends AnchorPane impl
    * Creates and initializes a new instance of the associated {@link Model}.
    * Loads the FXML file associated with the {@link Controller}.
    */
-  public void load()
-  {
-    throw new NotImplementedException();
-  }
+  public abstract void load();
 }

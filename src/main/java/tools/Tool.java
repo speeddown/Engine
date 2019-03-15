@@ -1,9 +1,7 @@
 package tools;
 
-import javafx.beans.DefaultProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.scene.Parent;
 import ui.Window;
 import ui.mvc.View;
 
@@ -15,55 +13,21 @@ import ui.mvc.View;
  *
  * @param <T> the type of View to use as the root of the tool window
  */
-@DefaultProperty("toolView")
-public abstract class Tool<T extends View>
+public abstract class Tool<T extends View> implements Loadable
 {
-  private Window window;
-  private ObjectProperty<T> toolView = new SimpleObjectProperty<>();
+	protected ObjectProperty<T> toolView = new SimpleObjectProperty<>();
+	protected ObjectProperty<Window> window = new SimpleObjectProperty<>();
 
-  public Tool()
-  {
-    super();
-    this.window = new Window();
-  }
+	@Override
+	public abstract void load();
 
-  public Tool(View root)
-  {
-    this.window = new Window(root);
-  }
+	public void showTool()
+	{
+		this.window.get().show();
+	}
 
-  /**
-   * Returns the root view of the Tool window
-   *
-   * @return the root node of the window
-   */
-  public Parent getRoot()
-  {
-    return this.window.getScene().getRoot();
-  }
-
-  /**
-   * Sets the root view of the Tool window
-   *
-   * @param toolView the tool view to set as the root of the window's UI object graph
-   */
-  public void setToolView(T toolView)
-  {
-    this.toolView.setValue(toolView);
-  }
-
-  protected T getToolView()
-  {
-    return this.toolView.get();
-  }
-
-  protected ObjectProperty<T> toolViewProperty()
-  {
-    return toolView;
-  }
-
-  /**
-   * Loads the root view that is set as the root of the Tool's {@link Window}
-   */
-  public abstract void load();
+	public void hideTool()
+	{
+		this.window.get().hide();
+	}
 }

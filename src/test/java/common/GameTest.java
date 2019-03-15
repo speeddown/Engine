@@ -21,17 +21,20 @@ package common;
 
 import ecs.common.EntityModel;
 import ecs.components.Sprite;
+import tools.LogViewer;
 
 public class GameTest extends common.Game
 {
   @Override
   protected void load()
   {
+    toolService.startTool(LogViewer.class);
   }
 
   @Override
   protected void unload()
   {
+
   }
 
   private class TestScene extends ecs.common.Scene
