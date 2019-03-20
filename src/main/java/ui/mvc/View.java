@@ -19,7 +19,9 @@
 
 package ui.mvc;
 
+import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Font;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import ui.controls.SplitTool.SplitToolModel;
 
@@ -42,7 +44,7 @@ public abstract class View<T extends Controller, V extends Model> extends Anchor
    */
   public View()
   {
-    load();
+
   }
 
   /**

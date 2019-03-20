@@ -1,44 +1,40 @@
 package ui.controls.SplitTool;
 
-import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.layout.AnchorPane;
 import ui.mvc.Model;
 import ui.mvc.View;
 
-public class SplitToolModel extends Model
+public class SplitToolModel<V extends View> extends Model
 {
-	private ListProperty items = new SimpleListProperty();
-	private ObjectProperty<View> itemContentRoot = new SimpleObjectProperty<>();
+	private ObservableList items = FXCollections.observableArrayList();
+	private ObjectProperty<AnchorPane> contentParent = new SimpleObjectProperty<>();
 
-	public Object getItems()
-	{
-		return items.get();
-	}
-
-	public ListProperty itemsProperty()
+	public ObservableList getItems()
 	{
 		return items;
 	}
 
-	public void setItems(Object items)
+	public void setItems(ObservableList items)
 	{
-		this.items.set(items);
+		this.items = items;
 	}
 
-	public View getItemContent()
+	public AnchorPane getContentParent()
 	{
-		return itemContentRoot.get();
+		return contentParent.get();
 	}
 
-	public ObjectProperty<View> itemContentRootProperty()
+	public ObjectProperty<AnchorPane> contentParentProperty()
 	{
-		return itemContentRoot;
+		return contentParent;
 	}
 
-	public void setItemContent(View itemContentRoot)
+	public void setContentParent(AnchorPane contentParent)
 	{
-		this.itemContentRoot.set(itemContentRoot);
+		this.contentParent.set(contentParent);
 	}
 }

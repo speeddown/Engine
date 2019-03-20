@@ -30,7 +30,6 @@ import ui.Window;
 public class ToolAccessService extends Service
 {
   private static ToolAccessService instance = null;
-  private final LoggingService.Logger logger = ServiceLocator.getInstance().resolve(LoggingService.class).newLogger(getClass());
 
   private HashMap<Class<? extends Tool>, Tool> tools = new HashMap<>();
 
@@ -60,8 +59,20 @@ public class ToolAccessService extends Service
       }
       catch (InstantiationException | IllegalAccessException e)
       {
-        logger.log("Failed to start tool: " + tool.getName(), e.getMessage());
+
       }
+    }
+  }
+
+  public <T extends Tool> T getTool(Class<? extends T> toolType)
+  {
+    if(isToolRunning(toolType))
+    {
+      return (T) tools.get(toolType);
+    }
+    else
+    {
+      return null;
     }
   }
 }

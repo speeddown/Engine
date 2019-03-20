@@ -1,5 +1,21 @@
+.root{
+    -fx-font-family: "Roboto-Regular";
+}
 
+.list-view .list-cell{
+    -fx-background-color: white;
+    -fx-font-family: "Roboto-Regular";
+}
 
-.toolView{
+.list-cell{
+    -fx-font-family: "Roboto-Regular"
+}
 
+.list-cell .label{
+    -fx-font-family: Roboto-Regular;
+}
+
+.list-cell:filled:selected .label{
+    -fx-text-fill:darkred;
+    -fx-font-family: Roboto-Regular;
 }

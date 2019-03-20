@@ -19,62 +19,58 @@
 
 package common;
 
-import services.Ecs;
-import services.EventManager;
-import services.LoggingService;
-import services.SceneManager;
-import services.SpriteService;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import services.ToolAccessService;
+import services.*;
 
 /**
  * Entry point for the project.
  */
 public abstract class Game extends Application
 {
-  protected LoggingService loggingService = LoggingService.getInstance();
-  protected EventManager eventManager = EventManager.getInstance();
-  protected ServiceLocator serviceLocator = ServiceLocator.getInstance();
-  protected ToolAccessService toolService = ToolAccessService.getInstance();
-  protected Ecs ecs = Ecs.getInstance();
-  protected SceneManager sceneManager = SceneManager.getInstance();
-  protected SpriteService spriteService = SpriteService.getInstance();
+	protected ToolAccessService toolService = ToolAccessService.getInstance();
+	protected LoggingService loggingService = LoggingService.getInstance();
+	protected EventManager eventManager = EventManager.getInstance();
+	protected ServiceLocator serviceLocator = ServiceLocator.getInstance();
+	protected Ecs ecs = Ecs.getInstance();
+	protected SceneManager sceneManager = SceneManager.getInstance();
+	protected SpriteService spriteService = SpriteService.getInstance();
 
-  @Override
-  public void start(Stage primaryStage)
-  {
-    AnchorPane root = new AnchorPane();
-    Scene scene = new Scene(root);
-    primaryStage.setScene(scene);
-    primaryStage.setWidth(800);
-    primaryStage.setHeight(600);
-    primaryStage.show();
+	@Override public void start(Stage primaryStage)
+	{
+		Font.loadFont(ClassLoader.getSystemResource("fonts/Roboto-Regular.ttf").toExternalForm(), 52);
 
-    load();
-    startRunning();
-  }
+		AnchorPane root = new AnchorPane();
+		Scene scene = new Scene(root);
+		primaryStage.setScene(scene);
+		primaryStage.setWidth(800);
+		primaryStage.setHeight(600);
+		primaryStage.show();
 
-  protected abstract void load();
+		load();
+		startRunning();
+	}
 
-  protected void startRunning()
-  {
-    ecs.start();
-  }
+	protected abstract void load();
 
-  protected abstract void unload();
+	protected void startRunning()
+	{
+		ecs.start();
+	}
 
-  protected void stopRunning()
-  {
-    ecs.stop();
-  }
+	protected abstract void unload();
 
-  @Override
-  public void stop()
-  {
-    unload();
-    stopRunning();
-  }
+	protected void stopRunning()
+	{
+		ecs.stop();
+	}
+
+	@Override public void stop()
+	{
+		unload();
+		stopRunning();
+	}
 }

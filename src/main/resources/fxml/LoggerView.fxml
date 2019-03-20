@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Label?>
+<fx:root type="AnchorPane" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+         fx:controller="ui.controls.Logger.Logger" stylesheets="@../css/Style.css">
+    <Label fx:id="name" AnchorPane.bottomAnchor="2" AnchorPane.topAnchor="2" AnchorPane.rightAnchor="2" styleClass="listItem"/>
+</fx:root>
